@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-5 col-md-offset-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Book the Flight</div>
+      <div class="panel-body">
+        <!-- Code the form here  -->
+        <form [formGroup]="bookingForm" >
+          <div class="form-group">
+            <label >Passenger Name:</label>
+            <input type="text"  class="form-control" formControlName="passengerName">
+            <div *ngIf="bookingForm.controls.passengerName.touched && bookingForm.controls.passengerName.errors" >
+            <p *ngIf="bookingForm.controls.passengerName.errors.required" class="alert alert-danger">This fiel is requried</p>      
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Number of tickets:</label>
+            <input type="text"  class="form-control" formControlName="noOfTickets">
+            <div *ngIf="bookingForm.controls.noOfTickets.touched &&  bookingForm.controls.noOfTickets.errors" class="alert alert-danger">
+              <p *ngIf="bookingForm.controls.noOfTickets.errors.required">This fiel is requried</p>         
+              <p *ngIf="bookingForm.controls.noOfTickets.errors.pattern"> Only Numbers Allowed  </p>     
+              <p *ngIf="bookingForm.controls.noOfTickets.errors.minLength">Min 1 ticket</p>           
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Flight Id:</label>
+            <input type="text"  class="form-control" formControlName="flightId">
+            <div *ngIf="bookingForm.controls.flightId.touched &&  bookingForm.controls.flightId.errors" class="alert alert-danger">
+              <p *ngIf="bookingForm.controls.flightId.errors.required">This fiel is requried</p>
+              <p *ngIf="bookingForm.controls.flightId.errors.minLength">Min 7 characters</p>        
+              <p *ngIf="bookingForm.controls.flightId.errors.maxLength">Max 7 characters</p>            
+              <p *ngIf="bookingForm.controls.flightId.errors.pattern"> The first three characters must be Capital letters, followed by a hyphen and followed by three numbers. Ex: IND-105</p>           
+            </div>
+          </div>
+           <button type="submit" class="btn btn-info" (click)="book()">Book</button>
+        </form>
+        <div *ngIf="errorMessage!=null">
+          <span class="error" [style.color]="'red'">{{errorMessage}}</span>
+        </div>
+        <div *ngIf="successMessage!=null">
+          <span class="success" [style.color]="'green'">{{successMessage}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

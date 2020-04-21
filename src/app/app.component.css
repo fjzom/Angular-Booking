@@ -1,0 +1,25 @@
+.allign{
+
+    text-align:center;
+    color:rgb(121, 16, 16)
+}
+.image{
+    height:50em; background-size:cover; width:auto;
+    background-image:url('/assets/background.jpg');
+    background-position:50% 50%;
+  } 
+  .navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+a {
+    float: left;
+    color: #9d9d9d;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+ 
+
+ 
